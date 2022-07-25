@@ -5,8 +5,8 @@ const typeDefs = gql`
         _id: ID
         username: String
         email: String
-        bookCount: Int
-        savedRecipes : [Recipe]
+        recipesCount: Int
+        savedRecipes: [Recipe]
     }
 
     type Recipe{

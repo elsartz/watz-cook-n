@@ -1,40 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela&family=Varela+Round&display=swap');
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  background-color:#cddfdb;
-}
+*{
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
   
-body {
-  font-family: 'Varela Round' , sans-serif;
-  color: #28190E;
-  background-color:#cddfdb;
-}
+  body {
+    margin: 0% 20%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   
   code {
-    font-family: 'Varela Round' sans-serif,
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
   
   h4{
-    font-size: small;
-    color: #28190E
+    font-size: 1rem;
+    color: rgba(54, 54, 54, 0.893);
   }
   
-  h1 {
-    font-size: large;
-    letter-spacing: 0.9px;
-    background-clip: text;
-    width: fit-content;
-  }
-
-  h2, h3 {
-    font-size: medium;
-    color: #28190E;
-    text-align: center;
+  
+  h3{
+    font-size: 1.5rem;
+    color: rgba(54, 54, 54, 0.893);
+    line-height: 2.5rem;
+    margin: 2rem 0rem;
   }
   
   a{
-    color: #28190E;
+    color: rgba(54, 54, 54, 0.893);
   }

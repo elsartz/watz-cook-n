@@ -47,7 +47,7 @@ userSchema.methods.isCorrectPassword = async function (password) {
 
 
 // when we query a user, we'll also get another field called `recipeCount` with the number of saved recipes we have
-userSchema.virtual('recipeCount').get(function () {
+userSchema.virtual('recipesCount').get(function () {
   return this.savedRecipes.length;
 });
 
