@@ -1,4 +1,4 @@
-import Button from '@mui/material/Button';
+import Button from 'mui-button';
 import { Link, Route } from 'react-router-dom';
 import homeIcon from './home.svg';
 import favIcon from './fav.svg';
