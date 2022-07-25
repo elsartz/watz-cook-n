@@ -1,0 +1,14 @@
+.slider {
+	display: flex;
+	overflow-x: auto;
+	scrollbar-width: none;
+	-ms-overflow-style: none; 
+}
+
+.slider::-webkit-scrollbar {
+	display: none;
+}
+
+.slider > * {
+	flex: 0 0 auto;
+}
