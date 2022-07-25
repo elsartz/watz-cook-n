@@ -9,8 +9,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import NoMatch from './pages/NoMatch';
-import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer';
+import Navbar from './components/nav/Navbar'
+import Footer from './components/footer/Footer';
 
 const httpLink = createHttpLink({
     uri: '/graphql',
