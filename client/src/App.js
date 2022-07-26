@@ -9,7 +9,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import Categories from './pages/Categories/Categories';
+import Categories from './pages/categories/Categories';
 import Navbar from './components/Navbar/Navbar';
 import Pages from './pages/Pages'
 // import Hero from './components/Hero/Hero'
