@@ -1,39 +1,44 @@
-import React, { useState } from 'react';
-import './SearchRecipes.module.css';
-import searchIcon from './search.svg';
-import { useNavigate } from 'react-router-dom';
-import Button from '@mui/material/Button';
 
-export default function Search() {
-    const [recipes, setRecipes] = useState('');
-    const navigate = useNavigate();  
+import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
+import {FormStyle, Layout, Container } from './SearchRecipes.style'
 
+export default function SearchRecipes() {
+    const [input, setInput] = useState("");
+    const navigate = useNavigate();
+  
     const submitHandler = (e) => {
-        e.preventDefault();
-        navigate('/search/' + recipes);
-      };
-
+      e.preventDefault();
+      navigate("/search/" + input);
+    };
+  
     return (
-        <div className='search'>
-            <div>
-                <recipes className='recipes'
-                    onChange={(e) => setRecipes(e.target.value)}
-                    type='text'
-                    value={recipes}
-                />
-            </div>
-            <Button
-                type='submit'
-                size='large'
-                variant='contained'
-                onClick={submitHandler}
-            >
-                <span>Search</span>
-                <img className='search'
-                    src={searchIcon}
-                    alt='search'
-                />
-            </Button>
-            </div>
-            );
-}
+        <Container>
+      <FormStyle onSubmit={submitHandler}>
+        <div>
+          <FaSearch />
+          <input
+            onChange={(e) => setInput(e.target.value)}
+            type="text"
+            value={input}
+            label="Search"
+          />
+        </div>
+        <Layout>
+          <Button
+            type="submit"
+            size="large"
+            variant="contained"
+            onClick={submitHandler}
+          >
+            <span>Search</span>
+            <FaSearch />
+          </Button>
+        </Layout>
+      </FormStyle>
+                  
+      </Container>
+    );
+  }

@@ -27,13 +27,13 @@ export default function Categories() {
             <SLink to={'/cuisine/Chinese'}><GiBowlOfRice/>
                 <h4>Chinese</h4>
             </SLink>
-            <SLink to={'/cuisine/Japanese'}>
+            <SLink to={'/cuisine/Korean'}>
                 <GiSushis/>
-                <h4>Japanese</h4>
+                <h4>Korean</h4>
             </SLink>
-            <SLink to={'/cuisine/Mexican'}>
+            <SLink to={'/cuisine/Spanish'}>
                 <GiTacos/>
-                <h4>Mexican</h4>
+                <h4>Spanish</h4>
             </SLink>
         </List>
     )
