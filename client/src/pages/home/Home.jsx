@@ -1,14 +1,34 @@
-import Search from '../../components/search/Search';
-import Categories from '../../components/categories/Categories';
-import Navbar from '../../components/nav/Navbar';
+
+import React, {useState} from 'react'
+import { Routes, Route } from "react-router-dom";
+import MobileSideBar from '../../components/MobileSidebar/MobileSideBar'
+import Navbar from '../../components/Navbar/Navbar'
+import styled
+ from 'styled-components'
 
 export default function Home (){
-    return ( 
-    <div>
-            <Navbar />
-            <Categories />
-            <Search />
-    </div>
+    const [isOpen, setIsOpen] = useState(false)
     
+    const toggleMenu = ()=>{
+        setIsOpen(!isOpen)
+    }
+
+    return ( 
+<>
+<MobileSideBar isOpen={isOpen} toggleMenu={toggleMenu}/>
+<Routes>
+<Navbar toggleMenu={toggleMenu}/>
+  </Routes>
+  <ProjectContainer/>
+  {/* <Footer/> */}
+</>
     )
 }
+
+const ProjectContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    `

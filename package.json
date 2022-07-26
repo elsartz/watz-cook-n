@@ -16,7 +16,12 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.9.2",
     "dotenv": "^16.0.1",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "react-icons": "^4.4.0",
+    "styled-components": "^5.3.5"
   }
 }

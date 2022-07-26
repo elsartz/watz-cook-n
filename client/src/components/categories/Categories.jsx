@@ -1,63 +1,41 @@
+
+import { NavLink } from "react-router-dom";
 import {FaPizzaSlice, FaHamburger} from 'react-icons/fa';
 import {GiSushis, GiBowlOfRice, GiNoodles, GiTacos, GiCroissant} from 'react-icons/gi';
-import { NavLink } from 'react-router-dom';
-import './categories.module.css';
+
+import {List, SLink} from './Categories.style'
 
 export default function Categories() {
     return (
-        <div className='cat'>
-            <SLink to={'/cuisine/Italian'}>
-                <img className='foodIcon'
-                    src={FaPizzaSlice}
-                    alt=''
-                />
-                <h4>Italian</h4>
+        <List>
+            <SLink to={'/cuisine/Italian'}><FaPizzaSlice/>
+            <h4>Italian</h4>
             </SLink>
+           
             <SLink to={'/cuisine/American'}>
-                <img className='foodIcon'
-                    src={FaHamburger}
-                    alt=''
-                />
+            <FaHamburger/>
                 <h4>American</h4>
             </SLink>
             <SLink to={'/cuisine/Thai'}>
-                <img className='foodIcon'
-                src={GiNoodles}
-                alt=''
-            />
+            <GiNoodles/>
                 <h4>Thai</h4>
             </SLink>
             <SLink to={'/cuisine/French'}>
-                <img className='foodIcon'
-                src={GiCroissant}
-                alt=''
-            />
+            <GiCroissant/>
                 <h4>French</h4>
             </SLink>
-            <SLink to={'/cuisine/Chinese'}>
-                <img className='foodIcon'
-                src={GiBowlOfRice}
-                alt=''
-            />
+            <SLink to={'/cuisine/Chinese'}><GiBowlOfRice/>
                 <h4>Chinese</h4>
             </SLink>
             <SLink to={'/cuisine/Japanese'}>
-                <img className='foodIcon'
-                src={GiSushis}
-                alt=''
-            />
+                <GiSushis/>
                 <h4>Japanese</h4>
             </SLink>
             <SLink to={'/cuisine/Mexican'}>
-                <img className='foodIcon'
-                src={GiTacos}
-                alt=''
-            />
+                <GiTacos/>
                 <h4>Mexican</h4>
             </SLink>
-        </div>
+        </List>
     )
 };
 
-const SLink = (NavLink)
-   

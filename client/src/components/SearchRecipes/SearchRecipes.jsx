@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './search.module.css';
+import './SearchRecipes.module.css';
 import searchIcon from './search.svg';
 import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';

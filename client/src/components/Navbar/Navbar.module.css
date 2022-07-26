@@ -3,7 +3,8 @@
 .navbar {
     padding: 15px;
     color: #28190E;
-    background-color: #b2ab95;
+    /* background-color: #b2ab95; */
+    background-color: red;
     display: flex;
     margin: 10px;
     width: 1400px;
