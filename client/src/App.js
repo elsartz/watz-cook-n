@@ -8,6 +8,8 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';
 import Navbar from './components/nav/Navbar'
 import Footer from './components/footer/Footer';
@@ -41,6 +43,14 @@ const httpLink = createHttpLink({
             {/* <Route path='/' element={<SearchRecipes/>} /> */}
             {/* <Route path='/saved' element={<SavedBooks/>} /> */}
             <Route path='*' element={<NoMatch />} />
+            <Route 
+                path="/login" 
+                element={<Login />} 
+              />
+              <Route 
+                path="/signup" 
+                element={<Signup />} 
+              />
           </Routes>
           <Footer />
       </Router>

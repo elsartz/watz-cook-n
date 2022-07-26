@@ -46,6 +46,7 @@ export default function Navbar() {
                 <li>
                     <a href='/login' element={<Login />}>log in</a>
                     {/* <Link to="/login" element={<Login />}>Login</Link> */}
+                    
                     {/* <Route 
                 path="/login" 
                 element={<Login />} 
