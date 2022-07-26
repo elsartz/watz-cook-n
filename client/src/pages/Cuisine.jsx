@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
+import {Link} from 'react-router-dom'
 
 export default function Cuisine() {
   
@@ -26,8 +27,10 @@ useEffect(() =>{
     {cuisine.map((item) =>{
         return(
             <Card key={item.id}>
+              <Link to={'/recipe/' + item.id}>
                 <img src={item.image} alt=""/>
                 <h4>{item.title}</h4>
+           </Link>
             </Card>
         )
     })}

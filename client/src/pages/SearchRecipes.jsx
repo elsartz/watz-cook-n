@@ -1,40 +1,41 @@
-import React from 'react'
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export default function SearchRecipes() {
-
   const [searchRecipes, setSearchRecipes] = useState([]);
 
   let params = useParams();
 
   const getSearch = async (name) => {
-  const data = await fetch(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query${name}=5`
-  );
-  const recipes = await data.json();
-  setSearchRecipes(recipes.results)
-  console.log(recipes.results)
-  }
+    const data = await fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}&number=5`
+    );
+    const recipes = await data.json();
+    setSearchRecipes(recipes.results);
+    console.log(recipes.results);
+  };
 
-  useEffect(()=>{
-      getSearch(params.search);
-  }, [params.search])
-return (
-  <Grid>
-      {searchRecipes.map((item) =>{
-          return (
-              <Card key={item.id}>
-                  <img src={item.image} alt=""/>
-                  <h4>{item.title}</h4>
-              </Card>
-          )
+  useEffect(() => {
+    getSearch(params.name);
+  }, [params.name]);
+  return (
+    <Grid>
+      {searchRecipes.map((item) => {
+        return (
+          <Card key={item.id}>
+            <Link to={'/recipe/' + item.id}>
+              <img src={item.image} alt='' />
+              <h4>{item.title}</h4>
+            </Link>
+          </Card>
+        );
       })}
-  </Grid>
-)
+    </Grid>
+  );
 }
-
 
 const Grid = styled.div`
   display: grid;
@@ -43,15 +44,15 @@ const Grid = styled.div`
 `;
 
 const Card = styled.div`
-  img{
-      width: 100%;
-      border-radius: 2rem;
+  img {
+    width: 100%;
+    border-radius: 2rem;
   }
-  a{
-      text-decoration: none;
+  a {
+    text-decoration: none;
   }
-  h4{
-      text-align: center;
-      padding: 1rem;
+  h4 {
+    text-align: center;
+    padding: 1rem;
   }
 `;

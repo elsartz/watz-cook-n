@@ -13,7 +13,7 @@ import Categories from './pages/Categories/Categories';
 import Navbar from './components/Navbar/Navbar';
 import Pages from './pages/Pages'
 // import Hero from './components/Hero/Hero'
-import SearchRecipes from './components/SearchRecipes/SearchRecipes'
+import SearchRecipes from './components/SearchRecipes/Search'
 import { ThemeProvider } from 'styled-components';
 
 const httpLink = createHttpLink({
