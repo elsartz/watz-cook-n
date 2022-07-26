@@ -25,7 +25,7 @@ export default function AppNavbar({ toggleMenu }) {
   return (
     <>
       <NavbarContainer>
-        <LogoName to='/'>
+        <LogoName>
           <LogoIcon src={Logo}></LogoIcon>
         </LogoName>
         <NavList>

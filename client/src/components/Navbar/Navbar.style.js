@@ -35,7 +35,7 @@ export const NavList = styled.div`
   max-width: 1100px;
 `;
 
-export const LogoName = styled(LinkRouter)`
+export const LogoName = styled.div`
   display: flex;
   color: black;
 
@@ -93,10 +93,11 @@ export const NavItems = styled(NavLink)`
   padding: 0 1rem;
   height: 100%;
   color: ${({ theme }) => theme.colors.fontColor};
+  
   cursor: pointer;
 
   &:hover {
-    color: #98676f;
+    color:  #f27121;
   }
 
   &.active {
