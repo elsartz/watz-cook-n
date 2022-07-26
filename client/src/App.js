@@ -57,8 +57,8 @@ function App() {
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Navbar />
-          <SearchRecipes/>
           <Categories />
+          <SearchRecipes/>
           <Pages/>
         </BrowserRouter>
       </ThemeProvider>

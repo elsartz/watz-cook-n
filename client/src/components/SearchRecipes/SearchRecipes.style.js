@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const FormStyle = styled.form`
-  margin-top: 2rem;
+  margin: 2rem;
   div {
     font-size: 25px;
     width: 100%;
@@ -23,7 +23,7 @@ export const FormStyle = styled.form`
     font-size: 2rem;
     color: white;
     padding: 1rem 3rem;
-    margin-left: .5rem;
+    margin-left: 0.5rem;
     border-radius: 1rem;
     border: none;
     outline: none;
@@ -41,16 +41,18 @@ export const FormStyle = styled.form`
 export const Layout = styled.div`
   display: flex;
   justify-content: center;
-    align-items: center;
-  margin-top: 1rem;
- padding: 0;
+  align-items: center;
+  margin: 1rem;
+  padding: 0;
+  margin-left: 0.5rem;
+  border-radius: 1rem;
   span {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
     font-weight: bold;
-    width: 95vh;
+    width: 80vh;
     height: 40px;
     border: none;
     outline: none;

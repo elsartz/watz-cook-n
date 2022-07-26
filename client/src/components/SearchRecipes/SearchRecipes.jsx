@@ -34,7 +34,7 @@ export default function SearchRecipes() {
             onClick={submitHandler}
           >
             <span>Search</span>
-            <FaSearch />
+          
           </Button>
         </Layout>
       </FormStyle>
