@@ -1,5 +1,6 @@
 // import Button from 'mui-button';
 // import { Link, Route } from 'react-router-dom';
+import React, {useState} from 'react';
 import {
   LogoIcon,
   NavbarContainer,
@@ -17,11 +18,13 @@ import { FaBars } from 'react-icons/fa';
 // import NavbarCSS from '../NavBar/Navbar.module.css';
 
 // import Login from '../../pages/Login';
+import Modalin from '../Modalin/Modalin';
 import Logo from '../../assets/logo/logo.png';
 
 export default function AppNavbar({ toggleMenu }) {
-  // const [showModal, setShowModal] = useState(false);
+  let [showModal, setShowModal] = useState(false);
 
+  showModal = <Modalin/>
   return (
     <>
       <NavbarContainer>
@@ -35,7 +38,8 @@ export default function AppNavbar({ toggleMenu }) {
           <NavMenu>
             <NavItems to='/home'>Home</NavItems>
             <NavItems to='/my-account'>My Account</NavItems>
-            <NavItems to='/login'>Login</NavItems>
+            {/* <NavItems to='/login' onClick={() => {Modalin(); setShowModal === !setShowModal}}>Login</NavItems> */}
+            <Modalin/>
           </NavMenu>
         </NavList>
       </NavbarContainer>
