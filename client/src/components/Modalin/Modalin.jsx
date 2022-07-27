@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
 import Login from '../../pages/Login';
+import Signup from '../../pages/Signup';
 function rand() {
     return Math.round(Math.random() * 20) - 10;
 }
@@ -23,12 +24,13 @@ const useStyles = makeStyles(theme => ({
     },
     paper: {
         position: 'absolute',
-        width: 450,
+        width: 350,
+        height: 300,
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
     },
-}));
+}))
 export default function SimpleModal() {
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
@@ -52,6 +54,8 @@ export default function SimpleModal() {
             >
                 <div style={modalStyle} className={classes.paper}>
                     <Login />
+                    <br /><br /><br />
+                    <Signup/>
                 </div>
             </Modal>
         </div>
