@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela&family=Varela+Round&display=swap');
+
+box/* entire code */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color:#cddfdb;
+}
+/*  #b2ab95 #cddfdb d3cdc5(FOR BUTTONS) */
+
+/* fonts - Varela Round for headings, Varela for other text */
+
+body {
+  font-family: 'Varela Round' , sans-serif;
+  color: #28190E;
+  background-color:#cddfdb;
+}
+
+.app {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .navbar {
+    padding: 15px;
+    color: #28190E;
+    background-color: #b2ab95;
+    display: flex;
+    margin: 10px;
+    width: 1400px;
+    height: 200px;
+    font-family: 'Varela', sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logo {
+    align-items: center;
+    height: 150px;
+    width: 200px;
+    float: inline-start;
+}
+
+.navbarOptions {
+    float: inline-end;
+    color: #28190E;
+    background-color: #b2ab95;
+    align-items: baseline;
+}
+
+.navbarOptions img {
+  height: 50px;
+  width: 150px;
+  align-items: center;
+  padding: 15px;
+  float: right;
+}
+
+ul {
+    list-style: none;
+    text-align: right;
+}
+
+a {
+    color: #28190E;
+    text-align: center;
+    text-decoration: none;
+}
+
+.search {  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  padding: 1rem 1.75rem;
+  border-radius: 3rem;
+  background: #d3cdc5;
+}
+
+.search input {
+  background: #d3cdc5;
+  border: none;
+}
+  
+  .recipes {
+      flex: 1;
+      border: none;
+      font-size: 1.5rem;
+      font-family:'Varela', sans-serif;
+      font-weight: 500;
+      padding-right: 1rem;
+    
+      outline: none;
+      color: #d3cdc5;
+      background: #d3cdc5;
+  }
+
+  .search img {
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+  }
+
+  /* .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  .mySlides {
+    display: none;
+  }
+  
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: #b2ab95;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color:#28190E;
+  }
+  
+  .text {
+    color: #28190E;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .numbertext {
+    color: #28190E;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #cddfdb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+   */
+  h1 {
+    font-size: 3rem;
+    letter-spacing: 0.9px;
+    background-clip: text;
+    width: fit-content;
+  }
+
+  h2, h3 {
+    font-size: medium;
+    color: #28190E;
+    text-align: center;
+  }
+
+  .footer {
+    padding: 15px;
+    color: #28190E;
+    background-color: #b2ab95;
+    display: flex;
+    margin: 10px;
+    width: 1400px;
+    height: 150px;
+}
