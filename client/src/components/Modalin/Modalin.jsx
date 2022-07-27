@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
 import Login from '../../pages/Login';
 import Signup from '../../pages/Signup';
+import Auth from '../../utils/auth';
+
 function rand() {
     return Math.round(Math.random() * 20) - 10;
 }
@@ -32,6 +34,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 export default function SimpleModal() {
+    
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
@@ -41,10 +44,11 @@ export default function SimpleModal() {
     const handleClose = () => {
         setOpen(false);
     };
+    const token = localStorage.getItem('id_token');
     return (
         <div>
             <Button variant="contained" color="primary" onClick={handleOpen}>
-                Login
+               {token ? (<span>Logout</span>) : (<span>Login</span>)}
             </Button>
             <Modal
                 aria-labelledby="simple-modal-title"
