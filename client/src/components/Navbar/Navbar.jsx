@@ -22,9 +22,9 @@ import Modalin from '../Modalin/Modalin';
 import Logo from '../../assets/logo/logo.png';
 
 export default function AppNavbar({ toggleMenu }) {
-  let [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
 
-  showModal = <Modalin/>
+  
   return (
     <>
       <NavbarContainer>

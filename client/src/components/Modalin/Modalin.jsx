@@ -34,17 +34,20 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 export default function SimpleModal() {
-    
+    const token = localStorage.getItem('id_token');
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
+        if (token) {
+            return Auth.logout()
+        }
     };
     const handleClose = () => {
         setOpen(false);
     };
-    const token = localStorage.getItem('id_token');
+    
     return (
         <div>
             <Button variant="contained" color="primary" onClick={handleOpen}>
