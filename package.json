@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "dotenv": "^16.0.1",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "latest-version": "^7.0.0"
   }
 }

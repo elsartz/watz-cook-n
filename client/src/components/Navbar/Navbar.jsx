@@ -26,7 +26,7 @@ export default function AppNavbar({ toggleMenu }) {
 
   
   return (
-    <>
+    <div>
       <NavbarContainer>
         <LogoName>
           <LogoIcon src={Logo}></LogoIcon>
@@ -43,44 +43,7 @@ export default function AppNavbar({ toggleMenu }) {
           </NavMenu>
         </NavList>
       </NavbarContainer>
-    </>
-    // <nav className={NavbarCSS.navbar}>
-    //   <img className={NavbarCSS.logo} src={logo} alt='logo' />
-    //   <div className={NavbarCSS.navbarOptions}>
-    //     <ul>
-    //       <Button>
-    //         {' '}
-    //         {/*variant="contained" */}
-    //         <li className='active'>
-    //           <a href='/Home'>home</a>
-
-    //           <span>home</span>
-    //           <img className={NavbarCSS.home} src={homeIcon} alt='home' />
-    //         </li>
-    //       </Button>
-    //       <Button>
-    //         <li>
-    //           <a href='/fav'>favourites</a>
-    //           <span>favourites</span>
-    //           <img className={NavbarCSS.fav} src={favIcon} alt='favourites' />
-    //         </li>
-    //       </Button>
-    //       <Button>
-    //         <li>
-    //           <a href='/login' element={<Login />}>
-    //             log in
-    //           </a>
-    //           {/* <Link to="/login" element={<Login />}>Login</Link> */}
-    //           {/* <Route
-    //             path="/login"
-    //             element={<Login />}
-    //           /> */}
-    //           <span>account</span>
-    //           <img className={NavbarCSS.acc} src={accIcon} alt='my account' />
-    //         </li>
-    //       </Button>
-    //     </ul>
-    //   </div>
-    // </nav>
+    </div>
+   
   );
 }
