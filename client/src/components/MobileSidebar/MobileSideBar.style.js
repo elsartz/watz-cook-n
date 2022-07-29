@@ -62,4 +62,4 @@ export const SidebarLink = styled(LinkRouter)`
     color: #01bf71;
     transition: 0.2s ease-in-out;
   }
-`
+  `
