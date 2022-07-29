@@ -2,8 +2,8 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
-import Login from '../../pages/Login';
-import Signup from '../../pages/Signup';
+import LoginForm from '../LoginForm/LoginForm';
+import SignupForm from '../SignForm/SignupForm';
 import Auth from '../../utils/auth';
 
 function rand() {
@@ -60,9 +60,9 @@ export default function SimpleModal() {
                 onClose={handleClose}
             >
                 <div style={modalStyle} className={classes.paper}>
-                    <Login />
+                    <LoginForm />
                     <br /><br /><br />
-                    <Signup/>
+                    <SignupForm />
                 </div>
             </Modal>
         </div>
