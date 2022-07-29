@@ -26,7 +26,7 @@ export default function AppNavbar({ toggleMenu }) {
 
   
   return (
-    <>
+    <div>
       <NavbarContainer>
         <LogoName>
           <LogoIcon src={Logo}></LogoIcon>
@@ -43,7 +43,7 @@ export default function AppNavbar({ toggleMenu }) {
           </NavMenu>
         </NavList>
       </NavbarContainer>
-    </>
+    </div>
     // <nav className={NavbarCSS.navbar}>
     //   <img className={NavbarCSS.logo} src={logo} alt='logo' />
     //   <div className={NavbarCSS.navbarOptions}>

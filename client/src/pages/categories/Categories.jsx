@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { NavLink } from "react-router-dom";
 import {FaPizzaSlice, FaHamburger} from 'react-icons/fa';
 import {GiSushis, GiBowlOfRice, GiNoodles, GiTacos, GiCroissant} from 'react-icons/gi';
