@@ -6,18 +6,13 @@ export const NavbarContainer = styled.nav`
   justify-content: space-evenly;
   align-items: center;
   position: sticky;
-  background: ${({ theme }) => theme.colors.background};
+  background: ${({ theme }) => theme.colors.mainBg};
+  /* background:linear-gradient(135deg, #ffe985 0%,#fa742a 100%); */
   height: 140px;
   top: 0;
   z-index: 10;
   padding: 0;
   margin: 0;
-  box-shadow:
-  15.6px 15.6px 7.5px rgba(0, 0, 0, 0.129),
-  28.6px 28.6px 25.7px rgba(0, 0, 0, 0.185),
-  45.4px 45.4px 48.5px rgba(0, 0, 0, 0.241),
-  100px 100px 80px rgba(0, 0, 0, 0.37)
-;
 
   @media screen and (max-width: 960px) {
     transition: 0.8s all ease-in-out;
@@ -38,7 +33,6 @@ export const NavList = styled.div`
 export const LogoName = styled.div`
   display: flex;
   color: black;
-
   /* color: ${({ theme }) => theme.colors.fontColor}; */
   align-content: flex-start;
   font-size: 2rem;
@@ -49,7 +43,7 @@ export const LogoName = styled.div`
   cursor: pointer;
 
   :hover {
-    color: #98676f;
+    color: #a0897f;
   }
 `;
 
@@ -97,7 +91,7 @@ export const NavItems = styled(NavLink)`
   cursor: pointer;
 
   &:hover {
-    color:  #f27121;
+    color: ${({ theme }) => theme.colors.hoverColor};
   }
 
   &.active {

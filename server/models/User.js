@@ -1,10 +1,20 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-// import schema from Recipe.js
+
 const recipeSchema = require('./Recipe');
 
 const userSchema = new Schema(
   {
+    firstName: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     username: {
       type: String,
       required: true,
@@ -16,14 +26,14 @@ const userSchema = new Schema(
       unique: true,
       match: [/.+@.+\..+/, 'Must use a valid email address'],
     },
-      password: {
+    password: {
       type: String,
       required: true,
     },
     // set savedRecipes  to be an array of data that adheres to the recipeSchema
-    savedRecipes : [recipeSchema],
-    },
-    {
+    savedRecipes: [recipeSchema],
+  },
+  {
     toJSON: {
       virtuals: true,
     },
@@ -44,7 +54,6 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
-
 
 // when we query a user, we'll also get another field called `recipeCount` with the number of saved recipes we have
 userSchema.virtual('recipesCount').get(function () {
