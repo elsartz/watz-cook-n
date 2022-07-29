@@ -9,7 +9,7 @@ export const LOGIN = gql`
                 _id
                 username
                 email
-                recipeCount
+                recipesCount
                 savedRecipes {
                     recipeId
                     title
@@ -37,7 +37,7 @@ export const ADD_USER = gql`
                 _id
                 username
                 email
-                recipeCount
+                recipesCount
                 savedRecipes {
                     recipeId
                     title
