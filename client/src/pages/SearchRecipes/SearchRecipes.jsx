@@ -105,7 +105,7 @@ export default function SearchRecipes() {
             type='submit'
             size='large'
             variant='success'
-            // onClick={submitHandler}
+            onClick={handleFormSubmit}            //{submitHandler}
           >
             <span>Search</span>
           </Button>

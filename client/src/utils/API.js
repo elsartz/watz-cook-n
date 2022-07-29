@@ -54,7 +54,7 @@ export const deleteBook = (recipeId, token) => {
 // https://www.googleapis.com/books/v1/volumes?q=harry+potter
 export const searchFoodRecipe = (query) => {
   // return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
-  return fetch(
+  return fetch(     // ${process.env.REACT_APP_API_KEY}
     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${query}&number=10`
   );
 };
