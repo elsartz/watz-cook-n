@@ -81,8 +81,17 @@ export default function FoodDetail() {
     }
 
     try {
-      const { data } = await saveRecipe({
+      // const { data } = await saveRecipe({
+      //   variables: { input: recipeInput },
+      // });
+
+      await saveRecipe({  // same as savedBooks
         variables: { input: recipeInput },
+        update: cache => {
+          const {me} = cache.readQuery({ query: QUERY_GET_ME }) || 'null';
+         
+          cache.writeQuery({ query: QUERY_GET_ME , data: {me: { ...me, savedRecipes: [...me.savedRecipes, recipeInput] } } })
+        }
       });
 
       if (error) {
@@ -90,7 +99,7 @@ export default function FoodDetail() {
         throw new Error('something went wrong!');
       }
 
-      // if book successfully saves to user's account, save book id to state
+      // if recipe successfully saves to user's account, save recipe id to state
       setSavedRecipeIds([...savedRecipeIds, recipeInput.recipeId]);
     } catch (err) {
       console.error(err);

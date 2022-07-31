@@ -16,8 +16,8 @@ const savedRecipes = () => {
   const userData = setUserData?.me || {};
 console.log('userdata', userData);
 
-  const userRecipes = userData.savedRecipes.map(Recipe => Recipe.bookId);
-console.log('userbooks', userRecipes);
+  const userRecipes = userData.savedRecipes.map(Recipe => Recipe.recipeId);
+console.log('userrecipes', userRecipes);
 
 // const [userData, setUserData] = useState({});
   // use this to determine if `useEffect()` hook needs to run again
@@ -48,8 +48,8 @@ console.log('userbooks', userRecipes);
   //   getUserData();
   // }, [userDataLength]);
 
-  // create function that accepts the book's mongo _id value as param and deletes the book from the database
-  const handleDeleteRecipe = async (bookId) => {
+  // create function that accepts the recipe's mongo _id value as param and deletes the recipe from the database
+  const handleDeleteRecipe = async (recipeId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -58,12 +58,12 @@ console.log('userbooks', userRecipes);
 
     try {  // tried and tried to ...but at the end i was consult for this action
       const response = await deleteRecipe({
-        variables: {bookId: bookId},
+        variables: {recipeId: recipeId},
         // update: cache => {
         //   const setUserData = cache.readQuery({ query: QUERY_GET_ME });
         //   const userDataCache = setUserData.me;
         //   const savedRecipesCache = userDataCache.savedRecipes || [];
-        //   const updatedRecipeCache = savedRecipesCache.filter((book) => book.bookId !== bookId);
+        //   const updatedRecipeCache = savedRecipesCache.filter((recipe) => recipe.recipeId !== recipeId);
         //   setUserData.me.savedRecipes = updatedRecipeCache;
         //   cache.writeQuery({ query: QUERY_GET_ME , setUserData: {setUserData: {...setUserData.me.savedRecipes}}})
         // }
@@ -75,8 +75,8 @@ console.log('userbooks', userRecipes);
 
       // const updatedUser = await response.json();
       // setUserData(updatedUser);
-      // upon success, remove book's id from localStorage
-      removeRecipeId(bookId);
+      // upon success, remove recipe's id from localStorage
+      removeRecipeId(recipeId);
     } catch (err) {
       console.error(err);
     }
@@ -94,25 +94,25 @@ console.log('userbooks', userRecipes);
     <>
       <Jumbotron fluid className='text-light bg-dark'>
         <Container>
-          <h1>Viewing saved books!</h1>
+          <h1>Viewing saved recipes!</h1>
         </Container>
       </Jumbotron>
       <Container>
         <h2>
           {userData.savedRecipes.length
-            ? `Viewing ${userData.savedRecipes.length} saved ${userData.savedRecipes.length === 1 ? 'book' : 'books'}:`
-            : 'You have no saved books!'}
+            ? `Viewing ${userData.savedRecipes.length} saved ${userData.savedRecipes.length === 1 ? 'recipe' : 'recipes'}:`
+            : 'You have no saved recipes!'}
         </h2>
         <CardColumns>
-          {userData.savedRecipes.map((book) => {
+          {userData.savedRecipes.map((recipe) => {
             return (
-              <Card key={book.bookId} border='dark'>
-                {book.image ? <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' /> : null}
+              <Card key={recipe.recipeId} border='dark'>
+                {recipe.image ? <Card.Img src={recipe.image} alt={`The cover for ${recipe.title}`} variant='top' /> : null}
                 <Card.Body>
-                  <Card.Title>{book.title}</Card.Title>
-                  <p className='small'>Authors: {book.authors}</p>
-                  <Card.Text>{book.description}</Card.Text>
-                  <Button className='btn-block btn-danger' onClick={() => handleDeleteRecipe(book.bookId)}>
+                  <Card.Title>{recipe.title}</Card.Title>
+                  <p className='small'>Authors: {recipe.authors}</p>
+                  <Card.Text>{recipe.description}</Card.Text>
+                  <Button className='btn-block btn-danger' onClick={() => handleDeleteRecipe(recipe.recipeId)}>
                     Delete this Recipe!
                   </Button>
                 </Card.Body>

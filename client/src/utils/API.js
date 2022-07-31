@@ -29,7 +29,7 @@ export const loginUser = (userData) => {
   });
 };
 
-// save book data for a logged in user
+// save recipe data for a logged in user
 export const saveRecipe = (recipeData, token) => {
   return fetch('/api/users', {
     method: 'PUT',
@@ -41,7 +41,7 @@ export const saveRecipe = (recipeData, token) => {
   });
 };
 
-// remove saved book data for a logged in user
+// remove saved recipe data for a logged in user
 export const deleteRecipe = (recipeId, token) => {
   return fetch(`/api/users/recipe/${recipeId}`, {
     method: 'DELETE',
@@ -51,10 +51,10 @@ export const deleteRecipe = (recipeId, token) => {
   });
 };
 
-// make a search to google books api
-// https://www.googleapis.com/books/v1/volumes?q=harry+potter
+// make a search to google recipes api
+// https://www.googleapis.com/recipes/v1/volumes?q=harry+potter
 export const searchFoodRecipe = (query) => {
-  // return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+  // return fetch(`https://www.googleapis.com/recipes/v1/volumes?q=${query}`);
   
   console.log('apikey:',process.env.REACT_APP_API_KEY)
   return fetch(     // ${process.env.REACT_APP_API_KEY}
