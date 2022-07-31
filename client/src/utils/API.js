@@ -1,4 +1,5 @@
 // route to get logged in user's info (needs the token)
+const apiKey = `b562a65d069047d1ae325d35c9f77d52`  //process.env.REACT_APP_API_KEY
 export const getMe = (token) => {
   return fetch('/api/users/me', {
     headers: {
@@ -54,13 +55,15 @@ export const deleteBook = (recipeId, token) => {
 // https://www.googleapis.com/books/v1/volumes?q=harry+potter
 export const searchFoodRecipe = (query) => {
   // return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+  
+  console.log('apikey:',process.env.REACT_APP_API_KEY)
   return fetch(     // ${process.env.REACT_APP_API_KEY}
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${query}&number=10`
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}&number=10`
   );
 };
 
 export const searchFoodDetail = (id) => {
   return fetch(
-    `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API_KEY}`
+    `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`
   );
 };

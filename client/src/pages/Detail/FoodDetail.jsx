@@ -67,10 +67,10 @@ export default function FoodDetail() {
   console.log('searchedRecipes',searchedRecipes);
   // create function to handle saving a recipe to our database
   const handleSaveRecipe = async (recipeId) => {
-    // const recipeInput = searchedRecipes.find(
-    //   (recipe) => recipe.recipeId === recipeId
-    // );
-    const recipeInput = searchedRecipes.recipeId
+    const recipeInput = searchedRecipes.find(
+      (recipe) => {recipeId === recipe.recipeId}
+    );
+    // const recipeInput = searchedRecipes    // .recipeId
     console.log('recipeInput',recipeInput)
 
     // get token

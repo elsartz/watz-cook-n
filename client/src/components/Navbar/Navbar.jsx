@@ -26,7 +26,7 @@ export default function Navbar({ toggleMenu }) {
         </HamburgerIcon>
         <NavMenu>
           <NavItems to='/'>Home</NavItems>
-          <NavItems to='/my-account'>My Account</NavItems>
+          <NavItems to='/saved'>My recipes</NavItems>
           {/* <NavItems to='/login'>Login</NavItems> */}
           <Modalin/>
         </NavMenu>

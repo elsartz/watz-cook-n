@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import {Fstyle} from './Footer.style';
 
 export default function Footer() {
   return (
-    <>
-   <h2>This is a footer</h2>
-    </>
+    <div style={{background:"#5000ca"}}>
+      <Fstyle/>
+      <p style={{textAlign:"center"}}>Copyright 2022 by minions</p>
+    </div>
 
   )
 }
