@@ -7,7 +7,7 @@ export const NavbarContainer = styled.nav`
   align-items: center;
   position: sticky;
   background: ${({ theme }) => theme.colors.mainBg};
-  /* background:linear-gradient(135deg, #ffe985 0%,#fa742a 100%); */
+  background:linear-gradient(135deg, #ffe985 0%,#fa742a 100%); 
   height: 140px;
   top: 0;
   z-index: 10;

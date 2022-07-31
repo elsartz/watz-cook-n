@@ -13,6 +13,7 @@ import { saveRecipeIds, getSavedRecipeIds } from '../../utils/localStorage';
 import { useMutation } from '@apollo/client';
 import { SAVE_RECIPES } from '../../utils/mutations';
 import { ListItemAvatar } from '@mui/material';
+import Auth from '../../utils/auth';
 
 export default function FoodDetail() {
   let params = useParams();
@@ -63,12 +64,14 @@ export default function FoodDetail() {
       console.error(err);
     }
   };
-  console.log(searchedRecipes);
+  console.log('searchedRecipes',searchedRecipes);
   // create function to handle saving a recipe to our database
-  const handleSaveBook = async (recipeId) => {
-    const recipeInput = searchedRecipes.find(
-      (recipe) => recipe.recipeId === recipeId
-    );
+  const handleSaveRecipe = async (recipeId) => {
+    // const recipeInput = searchedRecipes.find(
+    //   (recipe) => recipe.recipeId === recipeId
+    // );
+    const recipeInput = searchedRecipes.recipeId
+    console.log('recipeInput',recipeInput)
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -129,6 +132,12 @@ export default function FoodDetail() {
           onClick={() => setActiveTab('ingredients')}
         >
           Ingredients
+        </Button>
+        <Button
+          // className={activeTab === 'ingredients' ? 'active' : ''}
+          onClick={() => handleSaveRecipe('Add Recipe')}
+        >
+          Add Recipe
         </Button>
         {activeTab === 'instructions' && (
           <div>
