@@ -3,21 +3,21 @@ import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_GET_ME } from '../utils/queries';
-import { REMOVE_BOOK } from '../utils/mutations';
+import { REMOVE_RECIPE } from '../utils/mutations';
 
-// import { getMe, deleteBook } from '../utils/API';
+import { getMe, deleteRecipe } from '../utils/API';
 import Auth from '../utils/auth';
-import { removeBookId, saveBookIds } from '../utils/localStorage';
+import { removeRecipeId, saveRecipeIds } from '../utils/localStorage';
 
-const SavedBooks = () => {
+const savedRecipes = () => {
 
   const {loading, setUserData} = useQuery(QUERY_GET_ME);
-  const [deleteBook] = useMutation(REMOVE_BOOK);
+  const [deleteRecipe] = useMutation(REMOVE_RECIPE);
   const userData = setUserData?.me || {};
 console.log('userdata', userData);
 
-  const userBooks = userData.savedBooks.map(Book => Book.bookId);
-console.log('userbooks', userBooks);
+  const userRecipes = userData.savedRecipes.map(Recipe => Recipe.bookId);
+console.log('userbooks', userRecipes);
 
 // const [userData, setUserData] = useState({});
   // use this to determine if `useEffect()` hook needs to run again
@@ -49,7 +49,7 @@ console.log('userbooks', userBooks);
   // }, [userDataLength]);
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
-  const handleDeleteBook = async (bookId) => {
+  const handleDeleteRecipe = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -57,15 +57,15 @@ console.log('userbooks', userBooks);
     }
 
     try {  // tried and tried to ...but at the end i was consult for this action
-      const response = await deleteBook({
+      const response = await deleteRecipe({
         variables: {bookId: bookId},
         // update: cache => {
         //   const setUserData = cache.readQuery({ query: QUERY_GET_ME });
         //   const userDataCache = setUserData.me;
-        //   const savedBooksCache = userDataCache.savedBooks || [];
-        //   const updatedBookCache = savedBooksCache.filter((book) => book.bookId !== bookId);
-        //   setUserData.me.savedBooks = updatedBookCache;
-        //   cache.writeQuery({ query: QUERY_GET_ME , setUserData: {setUserData: {...setUserData.me.savedBooks}}})
+        //   const savedRecipesCache = userDataCache.savedRecipes || [];
+        //   const updatedRecipeCache = savedRecipesCache.filter((book) => book.bookId !== bookId);
+        //   setUserData.me.savedRecipes = updatedRecipeCache;
+        //   cache.writeQuery({ query: QUERY_GET_ME , setUserData: {setUserData: {...setUserData.me.savedRecipes}}})
         // }
       });
 
@@ -76,13 +76,13 @@ console.log('userbooks', userBooks);
       // const updatedUser = await response.json();
       // setUserData(updatedUser);
       // upon success, remove book's id from localStorage
-      removeBookId(bookId);
+      removeRecipeId(bookId);
     } catch (err) {
       console.error(err);
     }
   };
 
-  saveBookIds(userBooks);
+  saveRecipeIds(userRecipes);
 
   // if data isn't here yet, say so
   // if (!userDataLength) {
@@ -99,12 +99,12 @@ console.log('userbooks', userBooks);
       </Jumbotron>
       <Container>
         <h2>
-          {userData.savedBooks.length
-            ? `Viewing ${userData.savedBooks.length} saved ${userData.savedBooks.length === 1 ? 'book' : 'books'}:`
+          {userData.savedRecipes.length
+            ? `Viewing ${userData.savedRecipes.length} saved ${userData.savedRecipes.length === 1 ? 'book' : 'books'}:`
             : 'You have no saved books!'}
         </h2>
         <CardColumns>
-          {userData.savedBooks.map((book) => {
+          {userData.savedRecipes.map((book) => {
             return (
               <Card key={book.bookId} border='dark'>
                 {book.image ? <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' /> : null}
@@ -112,8 +112,8 @@ console.log('userbooks', userBooks);
                   <Card.Title>{book.title}</Card.Title>
                   <p className='small'>Authors: {book.authors}</p>
                   <Card.Text>{book.description}</Card.Text>
-                  <Button className='btn-block btn-danger' onClick={() => handleDeleteBook(book.bookId)}>
-                    Delete this Book!
+                  <Button className='btn-block btn-danger' onClick={() => handleDeleteRecipe(book.bookId)}>
+                    Delete this Recipe!
                   </Button>
                 </Card.Body>
               </Card>
@@ -125,4 +125,4 @@ console.log('userbooks', userBooks);
   );
 };
 
-export default SavedBooks;
+export default savedRecipes;

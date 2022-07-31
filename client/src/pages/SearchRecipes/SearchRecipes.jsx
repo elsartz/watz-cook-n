@@ -57,8 +57,8 @@ export default function SearchRecipes() {
         }
       };
 
-    // create function to handle saving a recipe to our database
-  //  const handleSaveBook = async (recipeId) => {
+  //   // create function to handle saving a recipe to our database
+  //  const handleSaveRecipe = async (recipeId) => {
   //   const recipeInput = searchedRecipes.find((recipe) => recipe.recipeId === recipeId);
 
   //   // get token
