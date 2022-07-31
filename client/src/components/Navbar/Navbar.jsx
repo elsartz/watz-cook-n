@@ -12,6 +12,7 @@ import {
   import { FaBars } from 'react-icons/fa';
   import Logo from './logo.png';
 import Modalin from '../Modalin/Modalin';
+import SavedRecipes from '../../pages/savedRecipes'
 
 export default function Navbar({ toggleMenu }) {
   return (
@@ -26,7 +27,7 @@ export default function Navbar({ toggleMenu }) {
         </HamburgerIcon>
         <NavMenu>
           <NavItems to='/'>Home</NavItems>
-          <NavItems to='/saved'>My recipes</NavItems>
+          <NavItems to='/saved' element={<SavedRecipes/>}>My recipes</NavItems>
           {/* <NavItems to='/login'>Login</NavItems> */}
           <Modalin/>
         </NavMenu>
