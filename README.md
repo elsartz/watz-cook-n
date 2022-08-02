@@ -37,13 +37,16 @@ Alternatively, if you decide to run it locally, you will use Node.js to run the 
 
 ### --Screenshots--
 
-![](screenshots/watzcookinss1.JPG)
+![Heroku](https://github.com/elsartz/watz-cook-n/blob/main/img/watz-cookin.herokuapp.com.jpeg)
+![Login/Signup](https://github.com/elsartz/watz-cook-n/blob/main/img/login-signup.png)
+![Recipe](https://github.com/elsartz/watz-cook-n/blob/main/img/recipe.jpeg)
 
 # --Link to Github Repository--
 https://github.com/elsartz/watz-cook-n
 
 # --Deployed Application--
 
+[Live site with Heroku](https://watz-cookin.herokuapp.com/)
 
 ### --Author Information--
 * https://github.com/elsartz
