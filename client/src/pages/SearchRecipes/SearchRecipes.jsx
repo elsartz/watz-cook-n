@@ -14,7 +14,7 @@ import {MainWrapper, Wave, Container, FormStyle, Layout, Grid, Card} from './Sea
 import wave from '../../assets/svg/wave.svg'
 export default function SearchRecipes() {
 
-    const [saveRecipe, { error }] = useMutation(SAVE_RECIPES);
+    // const [saveRecipe, { error }] = useMutation(SAVE_RECIPES);
     const [searchedRecipes, setSearchedRecipes] = useState([]);
     const [searchInput, setSearchInput] = useState('');
     const [savedRecipeIds, setSavedRecipeIds] = useState(getSavedRecipeIds());
@@ -56,35 +56,6 @@ export default function SearchRecipes() {
           console.error(err);
         }
       };
-// get token
-const token = Auth.loggedIn() ? Auth.getToken() : null;
-  //   // create function to handle saving a recipe to our database
-   const handleSaveRecipe = async (recipeId) => {
-    const recipeInput = searchedRecipes.find((recipe) => recipe.recipeId === recipeId);
-
-    // // get token
-    // const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    if (!token) {
-      return false;
-    }
-
-    try {
-      const { data } = await saveRecipe({
-        variables: { input: recipeInput }
-      });
-
-      if (error) {
-        console.log(data)
-        throw new Error('something went wrong!');
-      }
-
-      // if recipe successfully saves to user's account, save recipe id to state
-      setSavedRecipeIds([...savedRecipeIds, recipeInput.recipeId]);
-    } catch (err) {
-      console.error(err);
-    }
-  };
     
   return (
    <MainWrapper>
@@ -106,7 +77,7 @@ const token = Auth.loggedIn() ? Auth.getToken() : null;
             type='submit'
             size='large'
             variant='success'
-            onClick={handleFormSubmit}            //{submitHandler}
+            // onClick={submitHandler}
           >
             <span>Search</span>
           </Button>
@@ -122,31 +93,10 @@ const token = Auth.loggedIn() ? Auth.getToken() : null;
               <img src={recipe.image} alt={`The cover for ${recipe.title}`} variant='top' />
               <p>{recipe.title}</p>
             </Link>
-            {/* {token ? 
-            (<Button
-                // className={activeTab === 'ingredients' ? 'active' : ''}
-                onClick={() => handleSaveRecipe('Add Recipe')}
-              >
-                Add Recipe
-              </Button>) : null} */}
-              {Auth.loggedIn() && (
-                    <Button
-                      disabled={savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)}
-                      className='btn-block btn-info'
-                      onClick={() => handleSaveRecipe(recipe.recipeId)}>
-                      {savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)
-                        ? 'This recipe has already been saved!'
-                        : 'Save this Recipe!'}
-                    </Button>
-                  )}
           </Card>
         );
       })}
     </Grid>
-
-      <Wave src={wave}>
-      </Wave>
-    
    </MainWrapper>
   )
 }

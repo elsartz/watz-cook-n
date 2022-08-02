@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 // mutation for logged in user
-export const LOGIN = gql`
+export const LOGIN_USER = gql`
     mutation loginUser($email: String!, $password: String!) {
         login(email: $email, password: $password) {
         token
@@ -9,7 +9,7 @@ export const LOGIN = gql`
                 _id
                 username
                 email
-                recipesCount
+                recipeCount
                 savedRecipes {
                     recipeId
                     title
@@ -31,13 +31,13 @@ export const LOGIN = gql`
 // mutation to add user 
 export const ADD_USER = gql`
     mutation addUser($username: String!, $email: String!, $password: String!) {
-        addUser(username: $username, email: $email, password: $password) {
+        addUser( username: $username, email: $email, password: $password) {
         token
             user {
-                _id
+                _id 
                 username
                 email
-                recipesCount
+                recipeCount
                 savedRecipes {
                     recipeId
                     title
@@ -57,7 +57,7 @@ export const ADD_USER = gql`
 `;
 
 // mutation to save recipes
-export const SAVE_RECIPES = gql`
+export const SAVE_RECIPE = gql`
     mutation saveRecipe($input: recipeInput!) {
         saveRecipe(input: $input) {
             _id
@@ -87,7 +87,7 @@ export const REMOVE_RECIPE = gql`
             _id
             username
             email
-            recipesCount
+            recipeCount
             savedRecipes {
                 recipeId
                     title

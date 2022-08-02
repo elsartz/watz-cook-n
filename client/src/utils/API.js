@@ -1,5 +1,4 @@
 // route to get logged in user's info (needs the token)
-const apiKey = `b562a65d069047d1ae325d35c9f77d52`  //process.env.REACT_APP_API_KEY
 export const getMe = (token) => {
   return fetch('/api/users/me', {
     headers: {
@@ -29,7 +28,7 @@ export const loginUser = (userData) => {
   });
 };
 
-// save recipe data for a logged in user
+// save book data for a logged in user
 export const saveRecipe = (recipeData, token) => {
   return fetch('/api/users', {
     method: 'PUT',
@@ -41,7 +40,7 @@ export const saveRecipe = (recipeData, token) => {
   });
 };
 
-// remove saved recipe data for a logged in user
+// remove saved book data for a logged in user
 export const deleteRecipe = (recipeId, token) => {
   return fetch(`/api/users/recipe/${recipeId}`, {
     method: 'DELETE',
@@ -51,19 +50,14 @@ export const deleteRecipe = (recipeId, token) => {
   });
 };
 
-// make a search to google recipes api
-// https://www.googleapis.com/recipes/v1/volumes?q=harry+potter
 export const searchFoodRecipe = (query) => {
-  // return fetch(`https://www.googleapis.com/recipes/v1/volumes?q=${query}`);
-  
-  console.log('apikey:',process.env.REACT_APP_API_KEY)
-  return fetch(     // ${process.env.REACT_APP_API_KEY}
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}&number=10`
+  return fetch(
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${query}&number=30`
   );
 };
 
 export const searchFoodDetail = (id) => {
   return fetch(
-    `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`
+    `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API_KEY}`
   );
 };

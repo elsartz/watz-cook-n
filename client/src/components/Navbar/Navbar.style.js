@@ -7,8 +7,8 @@ export const NavbarContainer = styled.nav`
   align-items: center;
   position: sticky;
   background: ${({ theme }) => theme.colors.mainBg};
-  background:linear-gradient(135deg, #ffe985 0%,#fa742a 100%); 
-  height: 140px;
+  /* background:linear-gradient(135deg, #ffe985 0%,#fa742a 100%); */
+  height: 170px;
   top: 0;
   z-index: 10;
   padding: 0;
@@ -98,3 +98,24 @@ export const NavItems = styled(NavLink)`
     border-bottom: 5px solid ${({ theme }) => theme.colors.activeNavLink};
   }
 `;
+
+export const NavItem2 = styled.div`
+
+display: flex;
+  font-size: 1.4rem;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  color: ${({ theme }) => theme.colors.fontColor};
+  
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.hoverColor};
+  }
+
+  &.active {
+    border-bottom: 5px solid ${({ theme }) => theme.colors.activeNavLink};
+  }
+`

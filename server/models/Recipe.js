@@ -4,7 +4,7 @@ const { Schema } = require('mongoose');
 const recipeSchema = new Schema({
   // saved recipe id
   recipeId: {
-    type: String,
+    type: Number,
     required: true,
   },
   title: {

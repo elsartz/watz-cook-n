@@ -1,10 +1,12 @@
 import styled from 'styled-components';
+import Kitchen from '../../assets/images/kitchen.jpg'
 
 export const Wrapper = styled.div`
-  margin-top: 5rem;
+
   margin-bottom: 5rem;
   padding: 2rem;
   display: flex;
+  min-height: 90vh;
   h2 {
     margin-bottom: 2rem;
   }
@@ -35,7 +37,7 @@ export const Card = styled.div`
   overflow: hidden;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   position: relative;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
@@ -45,7 +47,7 @@ export const Card = styled.div`
   cursor: pointer;
   
   :hover {
-    height: 700px;
+    height: 760px;
     opacity: 1;
   }
 
@@ -66,22 +68,21 @@ export const Card = styled.div`
   }
 
   h2 {
- 
     text-align: center;
-    color: #fff;
+    color: #ffff;
   }
   
   h3{
     margin: .5rem;
     font-size: 20px;
     text-align: center;
-    color: #fff;
+    color: #ffff;
     /* line-height: 5px; */
   }
   p{
     font-size: 25px;
     text-align: center;
-    color: #fff;
+    color: #ffff;
   }
 
 `;
@@ -120,10 +121,15 @@ export const Info = styled.div`
   margin-left: 10rem;
   max-width: 50%;
 
+  h2{
+    margin-top: 1.5rem;
+    color: #ffff;
+  }
   h3{
     font-size: 18px;
     font-weight: 400;
     line-height: 30px;
+    color: #ffff;
   }
   a{
     text-decoration: none;
@@ -131,6 +137,24 @@ export const Info = styled.div`
   }
   li{
     text-decoration: none;
-
+    color: #ffff;
   }
 `;
+
+export const Background = styled.div`
+ background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.5) 100%,
+      #000 80%
+    ),
+    url(${Kitchen});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: scroll;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+`

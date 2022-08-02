@@ -7,19 +7,19 @@ import {
   Wrapper,
   Button,
   Info,
+  Background
 } from './FoodDetail.style';
 import { searchFoodDetail } from '../../utils/API';
 import { saveRecipeIds, getSavedRecipeIds } from '../../utils/localStorage';
 import { useMutation } from '@apollo/client';
-import { SAVE_RECIPES } from '../../utils/mutations';
-import { ListItemAvatar } from '@mui/material';
+import { SAVE_RECIPE } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 export default function FoodDetail() {
   let params = useParams();
   let recipeData = [];
 
-  const [saveRecipe, { error }] = useMutation(SAVE_RECIPES);
+  const [saveRecipe, { error }] = useMutation(SAVE_RECIPE);
   const [searchedRecipes, setSearchedRecipes] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [savedRecipeIds, setSavedRecipeIds] = useState(getSavedRecipeIds());
@@ -64,15 +64,12 @@ export default function FoodDetail() {
       console.error(err);
     }
   };
-  console.log('searchedRecipes',searchedRecipes);
+  // console.log(searchedRecipes);
   // create function to handle saving a recipe to our database
-  const handleSaveRecipe = async (recipeId) => {
-    const recipeInput = searchedRecipes.find(
-      (recipe) => {recipeId === recipe.recipeId}
-    );
-    // const recipeInput = searchedRecipes    // .recipeId
-    console.log('recipeInput',recipeInput)
-
+  const handleSaveRecipe = async (data) => {
+    const recipeInput = data
+    
+      console.log(recipeInput)
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -81,37 +78,28 @@ export default function FoodDetail() {
     }
 
     try {
-      // const { data } = await saveRecipe({
-      //   variables: { input: recipeInput },
-      // });
-
-      await saveRecipe({  // same as savedBooks
+      const { data } = await saveRecipe({
         variables: { input: recipeInput },
-        update: cache => {
-          const {me} = cache.readQuery({ query: QUERY_GET_ME }) || 'null';
-         
-          cache.writeQuery({ query: QUERY_GET_ME , data: {me: { ...me, savedRecipes: [...me.savedRecipes, recipeInput] } } })
-        }
-      });
+      // },console.log('recipeInput:',recipeInput));
+    },setSavedRecipeIds([...savedRecipeIds,recipeInput.recipeId]));
 
       if (error) {
         console.log(data);
         throw new Error('something went wrong!');
       }
 
-      // if recipe successfully saves to user's account, save recipe id to state
-      setSavedRecipeIds([...savedRecipeIds, recipeInput.recipeId]);
+      // if book successfully saves to user's account, save book id to state
+      // setSavedRecipeIds([...savedRecipeIds, recipeInput.recipeId]);
     } catch (err) {
       console.error(err);
     }
   };
 
-  if (loading) {
-    return <p>Data is loading...</p>;
-  }
-
   return (
+    <>
+    <Background>
     <Wrapper>
+   
       <CardWrapper>
         <Card>
           <Title>
@@ -142,17 +130,27 @@ export default function FoodDetail() {
         >
           Ingredients
         </Button>
-        <Button
-          // className={activeTab === 'ingredients' ? 'active' : ''}
-          onClick={() => handleSaveRecipe('Add Recipe')}
-        >
-          Add Recipe
-        </Button>
+        {Auth.loggedIn() && (
+                    <Button
+                      disabled={savedRecipeIds?.some(
+                        (savedRecipeId) => savedRecipeId === saveRecipe.recipeId
+                      )}
+                   
+                      onClick={() => handleSaveRecipe(searchedRecipes)}
+                    >
+                      {savedRecipeIds?.some(
+                        (savedRecipeId) => savedRecipeId === searchedRecipes.recipeId
+                      )
+                        ? 'This recipe saved!'
+                        : 'Add to Favourites'}
+                    </Button>
+                  )}
         {activeTab === 'instructions' && (
           <div>
             <h3
               dangerouslySetInnerHTML={{ __html: searchedRecipes.summary }}
             ></h3>
+            <h2>Steps...</h2>
             <h3
               dangerouslySetInnerHTML={{ __html: searchedRecipes.instructions }}
             ></h3>
@@ -168,5 +166,7 @@ export default function FoodDetail() {
         )}
       </Info>
     </Wrapper>
+   </Background>
+    </>
   );
 }

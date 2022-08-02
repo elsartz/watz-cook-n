@@ -5,12 +5,12 @@ const typeDefs = gql`
         _id: ID
         username: String
         email: String
-        recipesCount: Int
+        recipeCount: Int
         savedRecipes: [Recipe]
     }
 
     type Recipe{
-        recipeId: String
+        recipeId: Int
         title: String
         cuisines: [String]
         extendedIngredients: [String]

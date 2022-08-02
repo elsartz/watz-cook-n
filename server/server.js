@@ -39,8 +39,8 @@ if (process.env.NODE_ENV === 'production') {
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
-  res.sendFile(path.join(__dirname, '../client/public/index.html'));
 });
+
 
 db.once('open', () => {
     app.listen(PORT, () => {
