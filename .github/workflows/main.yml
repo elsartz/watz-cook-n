@@ -11,5 +11,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.11
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "gentle-spire-19399"
+          heroku_app_name: "watz-cookin"
           heroku_email: "elsartz@gmail.com"
